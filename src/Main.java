@@ -16,14 +16,14 @@ public class Main {
     }
 
     public static String leer_cadena(String mensaje) {
-        out.print(mensaje + ": ");
-        String linea = teclado.nextLine();
-        if(linea.equals("")){
-        	out.print("El texto no puede estar vacío. ");
-        	return leer_cadena(mensaje);
-        }
-        else
-        	return linea;
+        String linea;
+        String mensajeAux = mensaje;
+        do{
+        	out.print(mensajeAux + ": ");
+        	linea = teclado.nextLine();
+        	mensajeAux= linea.equals("")?"La entrada es invalida. No puede estar vacio.\n" + mensaje :mensaje;
+        }while(linea.equals(""));
+        return linea;
     }
 
     public static int leer_entero(String mensaje) {
@@ -36,7 +36,6 @@ public class Main {
     }
 
     public static String ruta = "libros.tsv";
-
     public static void main(String[] args) {
 
         Funcion<Libro> imprimir = new Funcion<Libro>() {
