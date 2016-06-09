@@ -1,3 +1,4 @@
+package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.model;
 //Guarda este archivo con el nombre Main.java
 //package ....libros;
 
@@ -19,7 +20,7 @@ public class Main {
         out.print(mensaje + ": ");
         String linea = teclado.nextLine();
         if(linea.equals("")){
-        	out.print("El texto no puede estar vacío. ");
+        	out.print("El texto no puede estar vacï¿½o. ");
         	return leer_cadena(mensaje);
         }
         else
