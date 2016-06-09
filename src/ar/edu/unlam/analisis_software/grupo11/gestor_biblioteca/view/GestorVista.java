@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class GestorVista {
 
-	private JFrame frame;
+	public JFrame frame;
 
 	private PanelOption pnlOptionAltaLibro;
 	private PanelOption pnlOptionModificarLibro;
@@ -118,7 +118,7 @@ public class GestorVista {
 	
 	
 	protected void cerrarVentana() {
-		Integer respuesta = JOptionPane.showConfirmDialog(null, "Â¿Desea cerrar la aplicacion?");
+		Integer respuesta = JOptionPane.showConfirmDialog(null, "¿Desea cerrar la aplicacion?");
 		if(respuesta.intValue() == JOptionPane.OK_OPTION){
 			GestorVista.this.frame.dispose();
 		}
