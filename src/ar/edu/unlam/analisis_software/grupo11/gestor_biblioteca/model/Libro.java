@@ -1,5 +1,6 @@
+package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.model;
 
-class Libro implements Comparable<Libro> {
+public class Libro implements Comparable<Libro> {
 
     private String ISBN;
     private String titulo;
