@@ -19,6 +19,8 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 public class LoginVista extends JFrame {
 
 	private JPanel contentPane;
@@ -65,6 +67,23 @@ public class LoginVista extends JFrame {
 		contentPane.add(lblContrasea);
 		
 		textUsuarioLogin = new JTextField();
+		textUsuarioLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					if(Repositorio.ValidarUsuario(textUsuarioLogin.getText(), txtPasswordLogin.getText())){
+						//JOptionPane.showMessageDialog(null, "Usuario logueado correctamente");
+//						frame.setVisible(false);
+						frame.dispose();
+						new GestorVista().frame.setVisible(true);
+						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "El nombre de usuario o la contraseña es incorrecta");
+					}
+				}
+			}
+		});
 		textUsuarioLogin.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textUsuarioLogin.setBounds(110, 13, 147, 25);
 		contentPane.add(textUsuarioLogin);
@@ -80,11 +99,30 @@ public class LoginVista extends JFrame {
 		contentPane.add(buttonCancelar);
 		
 		JButton buttonIngresar = new JButton("Ingresar");
+		buttonIngresar.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					if(Repositorio.ValidarUsuario(textUsuarioLogin.getText(), txtPasswordLogin.getText())){
+						//JOptionPane.showMessageDialog(null, "Usuario logueado correctamente");
+//						frame.setVisible(false);
+						frame.dispose();
+						new GestorVista().frame.setVisible(true);
+						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "El nombre de usuario o la contraseña es incorrecta");
+					}
+				}
+			}
+		});
+
 		buttonIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Repositorio.ValidarUsuario(textUsuarioLogin.getText(), txtPasswordLogin.getText())){
 					//JOptionPane.showMessageDialog(null, "Usuario logueado correctamente");
-					frame.setVisible(false);
+//					frame.setVisible(false);
+					frame.dispose();
 					new GestorVista().frame.setVisible(true);
 					
 				}
@@ -97,6 +135,23 @@ public class LoginVista extends JFrame {
 		contentPane.add(buttonIngresar);
 		
 		txtPasswordLogin = new JPasswordField();
+		txtPasswordLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+					if(Repositorio.ValidarUsuario(textUsuarioLogin.getText(), txtPasswordLogin.getText())){
+						//JOptionPane.showMessageDialog(null, "Usuario logueado correctamente");
+//						frame.setVisible(false);
+						frame.dispose();
+						new GestorVista().frame.setVisible(true);
+						
+					}
+					else{
+						JOptionPane.showMessageDialog(null, "El nombre de usuario o la contraseña es incorrecta");
+					}
+				}
+			}
+		});
 		txtPasswordLogin.setBounds(110, 65, 147, 25);
 		contentPane.add(txtPasswordLogin);
 	}
