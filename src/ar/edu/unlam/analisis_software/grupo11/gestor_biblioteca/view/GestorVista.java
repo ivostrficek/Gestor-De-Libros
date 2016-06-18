@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.view.utils.PanelOption;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GestorVista {
 
@@ -96,9 +98,25 @@ public class GestorVista {
 		
 		
 		this.pnlOptionAltaLibro = new PanelOption("", "Altas de libros", color,colorOnFocus );
+		pnlOptionAltaLibro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				VentanaAlta ventana = new VentanaAlta();
+				ventana.setVisible(true);
+				frame.dispose();
+			}
+		});
 		this.pnlOptionAltaLibro.setBounds(168, 78, 229, 170);
 		
 		this.pnlOptionConsultas = new PanelOption("", "Consultar libro",color,colorOnFocus);
+		pnlOptionConsultas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				VentanaConsulta consulta = new VentanaConsulta();
+				consulta.setVisible(true);
+				frame.dispose();
+			}
+		});
 		this.pnlOptionConsultas.setBounds(168, 355, 229, 170);
 		
 		this.pnlOptionEliminarLibro = new PanelOption("", "Eliminar libro", color,colorOnFocus);

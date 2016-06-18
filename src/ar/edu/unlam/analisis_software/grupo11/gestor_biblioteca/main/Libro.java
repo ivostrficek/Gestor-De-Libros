@@ -1,6 +1,6 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main;
 
-class Libro implements Comparable<Libro> {
+public class Libro implements Comparable<Libro> {
 
     private String ISBN;
     private String titulo;
@@ -8,8 +8,21 @@ class Libro implements Comparable<Libro> {
     private String editorial;
     private int edicion;
     private int anno_de_publicacion;
+    
+    public Libro(){
+    	
+    }
 
-    @Override
+    public Libro(String ISBN, String titulo, String autor, String editorial, int edicion, int anno_de_publicacion) {
+		this.ISBN = ISBN;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.editorial = editorial;
+		this.edicion = edicion;
+		this.anno_de_publicacion = anno_de_publicacion;
+	}
+
+	@Override
     public boolean equals(Object libro) {
         return this==libro || (libro instanceof Libro && ISBN.equals(((Libro)libro).ISBN));
     }
