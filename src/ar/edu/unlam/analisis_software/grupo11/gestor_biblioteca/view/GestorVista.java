@@ -112,7 +112,7 @@ public class GestorVista {
 		pnlOptionConsultas.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				VentanaConsulta consulta = new VentanaConsulta();
+				VentanaIngresoISBN consulta = new VentanaIngresoISBN(1);
 				consulta.setVisible(true);
 				frame.dispose();
 			}
@@ -120,12 +120,28 @@ public class GestorVista {
 		this.pnlOptionConsultas.setBounds(168, 355, 229, 170);
 		
 		this.pnlOptionEliminarLibro = new PanelOption("", "Eliminar libro", color,colorOnFocus);
+		pnlOptionEliminarLibro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				VentanaIngresoISBN eliminar = new VentanaIngresoISBN(3);
+				eliminar.setVisible(true);
+				frame.dispose();
+			}
+		});
 		this.pnlOptionEliminarLibro.setBounds(926, 355, 229, 170);
 		
 		this.pnlOptionListarRegistros = new PanelOption("", "Listar registros", color,colorOnFocus);
 		this.pnlOptionListarRegistros.setBounds(524, 355, 229, 170);
 		
 		this.pnlOptionModificarLibro = new PanelOption("", "Modificar libro", color,colorOnFocus);
+		pnlOptionModificarLibro.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				VentanaIngresoISBN modificacion = new VentanaIngresoISBN(2);
+				modificacion.setVisible(true);
+				frame.dispose();
+			}
+		});
 		this.pnlOptionModificarLibro.setBounds(524, 78, 229, 170);
 		
 		this.pnlOptionOrdenarRegistros = new PanelOption("", "Ordenar registros", color,colorOnFocus);

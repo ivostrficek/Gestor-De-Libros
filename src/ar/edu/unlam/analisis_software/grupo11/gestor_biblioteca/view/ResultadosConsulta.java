@@ -1,8 +1,6 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,7 +8,6 @@ import javax.swing.border.EmptyBorder;
 import ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main.Libro;
 
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -19,6 +16,10 @@ import java.awt.event.ActionEvent;
 
 public class ResultadosConsulta extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7735383119694098329L;
 	private JPanel contentPane;
 
 	/**
@@ -68,7 +69,7 @@ public class ResultadosConsulta extends JFrame {
 		JButton btnRealizarOtraConsulta = new JButton("Realizar otra consulta");
 		btnRealizarOtraConsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaConsulta consulta = new VentanaConsulta();
+				VentanaIngresoISBN consulta = new VentanaIngresoISBN(1);
 				consulta.setVisible(true);
 				dispose();
 			}

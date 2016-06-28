@@ -1,13 +1,10 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import org.omg.CORBA.RepositoryIdHelper;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -23,6 +20,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 public class LoginVista extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8147387990784556206L;
 	private JPanel contentPane;
 	private JTextField textUsuarioLogin;
 	private JPasswordField txtPasswordLogin;
@@ -92,7 +93,7 @@ public class LoginVista extends JFrame {
 		JButton buttonCancelar = new JButton("Cancelar");
 		buttonCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				LoginVista.this.frame.dispose();
+				LoginVista.frame.dispose();
 			}
 		});
 		buttonCancelar.setBounds(192, 132, 89, 23);

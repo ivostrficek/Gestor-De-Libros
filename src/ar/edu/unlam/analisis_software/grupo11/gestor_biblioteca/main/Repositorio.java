@@ -1,14 +1,10 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main;
-import java.io.InputStream;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.*;
-import java.util.Calendar;
-
 import javax.swing.*;
 
 public class Repositorio {
+	
+
 	
 	public static Libro ConsultarLibro(String ISBN){
 		try{
@@ -17,12 +13,14 @@ public class Repositorio {
 			String query = "select * from libro where isbn = " + ISBN;
 			PreparedStatement pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
+			if(rs.isClosed()){
+				return null;
+			}
 			libro = new Libro(ISBN, rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7));
 			pst.close();
 			return libro;
 		}catch(Exception e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"No existe el libro solicitado");
 			return null;
 		}
 	}
@@ -33,7 +31,6 @@ public class Repositorio {
 			String query = "INSERT INTO LIBRO (ISBN,TITULO,AUTOR,EDITORIAL,EDICION,ANO_PUBLICACION) VALUES ('" + l.getISBN() + "','" + l.getTitulo() + "','" + l.getAutor() + "','" + l.getEditorial() + "'," + l.getEdicion() + ",'" + l.getAnno_de_publicacion() + "')";
 			PreparedStatement pst = conn.prepareStatement(query);
 			pst.executeUpdate();
-			//ResultSet rs = 
 			JOptionPane.showMessageDialog(null,"Libro guardado correctamente");
 			pst.close();
 		}
@@ -41,6 +38,39 @@ public class Repositorio {
 			JOptionPane.showMessageDialog(null,e);
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public static void ModificarLibro (Libro l){
+		try{
+			Connection conn = sqliteConnection.dbConnector();
+			String query = "UPDATE LIBRO SET TITULO = \"" + l.getTitulo() + "\", AUTOR = \"" + l.getAutor() + "\", EDITORIAL = \"" + l.getEditorial() + "\", EDICION = " + l.getEdicion() + ", ANO_PUBLICACION = " + l.getAnno_de_publicacion() + " WHERE ISBN = \"" + l.getISBN() + "\"";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.executeUpdate();
+			JOptionPane.showMessageDialog(null,"Libro modificado correctamente");
+			pst.close();
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null,e);
+			e.printStackTrace();
+		}
+	}
+	
+	public static void EliminarLibro(Libro l) {
+		try{
+			Connection conn = sqliteConnection.dbConnector();
+			String query = "DELETE FROM LIBRO WHERE ISBN = \"" + l.getISBN() + "\"";
+			PreparedStatement pst = conn.prepareStatement(query);
+			pst.executeUpdate();
+			//ResultSet rs = 
+			JOptionPane.showMessageDialog(null,"Libro eliminado correctamente");
+			pst.close();
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(null,e);
+			e.printStackTrace();
+		}
+	
 		
 	}
 	
@@ -63,4 +93,6 @@ public class Repositorio {
 			return false;
 		}
 	}
+
+
 }

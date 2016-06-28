@@ -1,28 +1,26 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.view;
 
-import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main.Libro;
 import ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main.Repositorio;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-public class VentanaAlta extends JFrame {
+public class VentanaModificar extends JFrame {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7379471324613797220L;
+	private static final long serialVersionUID = 4173719083622270259L;
 	private JPanel contentPane;
 	private JTextField isbnTextField;
 	private JTextField tituloTextField;
@@ -30,29 +28,17 @@ public class VentanaAlta extends JFrame {
 	private JTextField editorialTextField;
 	private JTextField edicionTextField;
 	private JTextField añoDePublicacionTextField;
-
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaAlta frame = new VentanaAlta();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaAlta() {
+	public VentanaModificar(Libro libro) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 453, 463);
+		setBounds(100, 100, 453, 433);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -83,34 +69,42 @@ public class VentanaAlta extends JFrame {
 		contentPane.add(lblAoDePublicacin);
 		
 		isbnTextField = new JTextField();
+		isbnTextField.setEditable(false);
 		isbnTextField.setBounds(155, 106, 86, 20);
 		contentPane.add(isbnTextField);
 		isbnTextField.setColumns(10);
+		isbnTextField.setText(libro.getISBN());
 		
 		tituloTextField = new JTextField();
 		tituloTextField.setBounds(155, 131, 86, 20);
 		contentPane.add(tituloTextField);
 		tituloTextField.setColumns(10);
+		tituloTextField.setText(libro.getTitulo());
 		
 		autorTextField = new JTextField();
 		autorTextField.setBounds(155, 156, 86, 20);
 		contentPane.add(autorTextField);
 		autorTextField.setColumns(10);
+		autorTextField.setText(libro.getAutor());
+		
 		
 		editorialTextField = new JTextField();
 		editorialTextField.setBounds(155, 181, 86, 20);
 		contentPane.add(editorialTextField);
 		editorialTextField.setColumns(10);
+		editorialTextField.setText(libro.getEditorial());
 		
 		edicionTextField = new JTextField();
 		edicionTextField.setBounds(155, 206, 86, 20);
 		contentPane.add(edicionTextField);
 		edicionTextField.setColumns(10);
+		edicionTextField.setText(Integer.toString(libro.getEdicion()));
 		
 		añoDePublicacionTextField = new JTextField();
 		añoDePublicacionTextField.setBounds(155, 231, 86, 20);
 		contentPane.add(añoDePublicacionTextField);
 		añoDePublicacionTextField.setColumns(10);
+		añoDePublicacionTextField.setText(Integer.toString(libro.getAnno_de_publicacion()));
 		
 		JButton btnGuardarLibro = new JButton("Guardar libro");
 		btnGuardarLibro.addActionListener(new ActionListener() {
@@ -134,8 +128,18 @@ public class VentanaAlta extends JFrame {
 				}
 				try{
 					Libro libro = new Libro(isbnTextField.getText(),tituloTextField.getText(), autorTextField.getText(), editorialTextField.getText(),Integer.parseInt(edicionTextField.getText()),Integer.parseInt(añoDePublicacionTextField.getText()));
-					Repositorio.AgregarLibro(libro);
-					blanquearCampos();
+					Repositorio.ModificarLibro(libro);
+					int answer = JOptionPane.showConfirmDialog(null, "¿Desea modificar otro libro?","", JOptionPane.YES_NO_OPTION);
+					if(answer == JOptionPane.OK_OPTION){
+						VentanaIngresoISBN modificar = new VentanaIngresoISBN(2);
+						modificar.setVisible(true);
+						dispose();
+					}
+					if(answer == JOptionPane.NO_OPTION){
+						GestorVista gestor = new GestorVista();
+						gestor.frame.setVisible(true);
+						dispose();
+					}
 				}
 				catch(Exception e){
 					e.printStackTrace();
@@ -144,7 +148,7 @@ public class VentanaAlta extends JFrame {
 				
 			}
 		});
-		btnGuardarLibro.setBounds(118, 320, 171, 23);
+		btnGuardarLibro.setBounds(127, 292, 171, 23);
 		contentPane.add(btnGuardarLibro);
 		
 		JButton btnIrAMen = new JButton("Ir a men\u00FA");
@@ -155,12 +159,12 @@ public class VentanaAlta extends JFrame {
 				dispose();
 			}
 		});
-		btnIrAMen.setBounds(338, 391, 89, 23);
+		btnIrAMen.setBounds(311, 363, 89, 23);
 		contentPane.add(btnIrAMen);
 		
-		JLabel lblAltaDeLibros = new JLabel("Alta de libros");
+		JLabel lblAltaDeLibros = new JLabel("Modificación de libros");
 		lblAltaDeLibros.setFont(new Font("Traditional Arabic", Font.PLAIN, 37));
-		lblAltaDeLibros.setBounds(118, 22, 232, 50);
+		lblAltaDeLibros.setBounds(62, 23, 365, 50);
 		contentPane.add(lblAltaDeLibros);
 	}
 
@@ -173,4 +177,7 @@ public class VentanaAlta extends JFrame {
 		añoDePublicacionTextField.setText("");
 		
 	}
+
 }
+
+
