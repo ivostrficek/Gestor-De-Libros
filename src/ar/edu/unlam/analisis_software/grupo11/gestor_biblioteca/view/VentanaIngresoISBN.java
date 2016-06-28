@@ -26,13 +26,7 @@ public class VentanaIngresoISBN extends JFrame {
 	private JTextField ISBNtextField;
 
 
-	/**
-	 * Launch the application.
-	 */
 
-	/**
-	 * Create the frame.
-	 */
 	public VentanaIngresoISBN(int operacion) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 263);
