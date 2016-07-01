@@ -1,5 +1,7 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.main;
 import java.sql.*;
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 public class Repositorio {
@@ -91,6 +93,24 @@ public class Repositorio {
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null,e);
 			return false;
+		}
+	}
+
+	public static ArrayList<Libro> ObtenerLibros() {
+		try {
+			ArrayList<Libro> libros = new ArrayList<Libro>();
+			Connection conn = sqliteConnection.dbConnector();
+			String query = "SELECT * from LIBRO";
+			PreparedStatement pst = conn.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()){
+				libros.add(new Libro(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+			}
+			pst.close();
+			return libros;
+		}catch(SQLException e) {
+			JOptionPane.showMessageDialog(null,e);
+			return null;
 		}
 	}
 

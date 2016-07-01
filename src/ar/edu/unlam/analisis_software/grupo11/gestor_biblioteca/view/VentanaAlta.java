@@ -104,14 +104,14 @@ public class VentanaAlta extends JFrame {
 					edicion = Integer.parseInt(edicionTextField.getText());
 				}
 				catch(Exception e){
-					e.printStackTrace();
+					//e.printStackTrace();
 					mensaje = mensaje.concat("-Debe ingresar un numero entero en el campo 'edición'\n");		
 				}
 				try{
 					anio_publicacion = Integer.parseInt(añoDePublicacionTextField.getText());
 				}
 				catch(Exception e){
-					e.printStackTrace();
+					//e.printStackTrace();
 					mensaje = mensaje.concat("-Debe ingresar un numero entero en el campo 'Año de publicacion'\n");
 				}
 				try{

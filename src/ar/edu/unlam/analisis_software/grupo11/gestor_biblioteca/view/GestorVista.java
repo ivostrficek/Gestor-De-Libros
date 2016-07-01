@@ -55,6 +55,7 @@ public class GestorVista {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Gestor de Libros");
 		frame.setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.setBounds(100, 100, 1235, 723);
@@ -131,6 +132,12 @@ public class GestorVista {
 		this.pnlOptionEliminarLibro.setBounds(926, 355, 229, 170);
 		
 		this.pnlOptionListarRegistros = new PanelOption("", "Listar registros", color,colorOnFocus);
+		pnlOptionListarRegistros.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+			}
+		});
 		this.pnlOptionListarRegistros.setBounds(524, 355, 229, 170);
 		
 		this.pnlOptionModificarLibro = new PanelOption("", "Modificar libro", color,colorOnFocus);
