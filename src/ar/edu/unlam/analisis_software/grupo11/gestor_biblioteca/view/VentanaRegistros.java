@@ -44,10 +44,7 @@ public class VentanaRegistros extends JFrame {
 	private JTextField isbnTextField;
 	
 	
-	
-//	public static void main(String[] args) {
-//		new VentanaRegistros().setVisible(true);
-//	}
+
 
 	public VentanaRegistros() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,41 +63,7 @@ public class VentanaRegistros extends JFrame {
 	
 
 		
-//		comboBox = new JComboBox<String>();
-//		comboBox.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				if(comboBox.getSelectedItem().equals("Autor")){
-//					Collections.sort(libros, new OrdenarLibrosPorAutor());
-//					for(int i = 0; i < libros.size(); i++){
-//						modelAutores.addElement(libros.get(i).getAutor());
-//						listaAutores.setModel(modelAutores);
-//					}
-//				}
-//				else
-//					if(comboBox.getSelectedItem().equals("Titulo")){
-//						Collections.sort(libros, new OrdenarLibrosPorTitulo() );
-//						for(int i = 0; i < libros.size(); i++){
-//							modelTitulos.addElement(libros.get(i));
-//							listaLibros.setModel(modelTitulos);
-//						}
-//							
-//					}
-//						
-//				
-//
-//				
-//				
-//			}
-//		});
-//		comboBox.setBounds(39, 53, 173, 20);
-//		contentPane.add(comboBox);
-//		comboBox.addItem("Seleccionar");
-//		comboBox.addItem("Autor");
-//		comboBox.addItem("Titulo");
-		
-//		JLabel lblListarLibrosPor = new JLabel("Listar libros por:");
-//		lblListarLibrosPor.setBounds(39, 28, 114, 14);
-//		contentPane.add(lblListarLibrosPor);
+
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -204,23 +167,7 @@ public class VentanaRegistros extends JFrame {
 		btnIrAMen.setBounds(614, 397, 89, 23);
 		contentPane.add(btnIrAMen);
 		
-//		scrollPane_1 = new JScrollPane();
-//		scrollPane_1.setBounds(302, 26, 288, 90);
-//		contentPane.add(scrollPane_1);
-		
-//		listaAutores = new JList<String>();
-//		listaAutores.setModel(modelAutores);
-//		listaAutores.addListSelectionListener(new ListSelectionListener() {
-//			public void valueChanged(ListSelectionEvent e) {
-//				for(int i = 0; i < libros.size(); i++){
-//					if(listaAutores.getSelectedValue().equals(libros.get(i).getAutor())){
-//						modelTitulos.addElement(libros.get(i));
-//						listaLibros.setModel(modelTitulos);
-//					}
-//				}
-//			}
-//		});
-//		scrollPane_1.setViewportView(listaAutores);
+
 		
 		Collections.sort(libros, new OrdenarLibrosPorTitulo() );
 		for(int i = 0; i < libros.size(); i++){
