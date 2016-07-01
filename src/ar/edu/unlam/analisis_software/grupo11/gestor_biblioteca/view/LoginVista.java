@@ -49,9 +49,11 @@ public class LoginVista extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginVista() {
-		setTitle("Login Gestor De Libros");
+		setTitle("Login Book Master 2000");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 307, 205);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

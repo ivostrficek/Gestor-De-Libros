@@ -1,7 +1,5 @@
 package ar.edu.unlam.analisis_software.grupo11.gestor_biblioteca.view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -35,6 +33,8 @@ public class VentanaAlta extends JFrame {
 	public VentanaAlta() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 453, 463);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -115,12 +115,17 @@ public class VentanaAlta extends JFrame {
 					mensaje = mensaje.concat("-Debe ingresar un numero entero en el campo 'Año de publicacion'\n");
 				}
 				try{
+					if(isbnTextField.getText().isEmpty() || tituloTextField.getText().isEmpty() || autorTextField.getText().isEmpty() || editorialTextField.getText().isEmpty()){
+						mensaje = mensaje.concat("-Ningún campo puede quedar en blanco");
+						throw new Exception();
+					}	
 					Libro libro = new Libro(isbnTextField.getText(),tituloTextField.getText(), autorTextField.getText(), editorialTextField.getText(),Integer.parseInt(edicionTextField.getText()),Integer.parseInt(añoDePublicacionTextField.getText()));
 					Repositorio.AgregarLibro(libro);
 					blanquearCampos();
 				}
 				catch(Exception e){
-					e.printStackTrace();
+					//e.printStackTrace();
+					
 					JOptionPane.showMessageDialog(null, mensaje);
 				}
 				

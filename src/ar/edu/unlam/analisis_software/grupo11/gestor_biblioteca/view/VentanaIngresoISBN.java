@@ -30,6 +30,8 @@ public class VentanaIngresoISBN extends JFrame {
 	public VentanaIngresoISBN(int operacion) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 263);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -59,28 +61,33 @@ public class VentanaIngresoISBN extends JFrame {
 			btnConsultar.setText("Aceptar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-					Libro libro = Repositorio.ConsultarLibro(ISBNtextField.getText());
-					if(libro == null)
-						JOptionPane.showMessageDialog(null,"No existe el libro solicitado");
-					else
-						switch(operacion){  //Operacion = 1 Consulta; Operacion = 2 Modificacion; Operacion = 3 Eliminar libro.
-							case 1:
-								ResultadosConsulta resultados = new ResultadosConsulta(libro);
-								resultados.setVisible(true);
-								dispose();
-								break;
-							case 2:
-								VentanaModificar modificar = new VentanaModificar(libro);
-								modificar.setVisible(true);
-								dispose();
-								break;
-							case 3:
-								VentanaEliminar eliminar = new VentanaEliminar(libro);
-								eliminar.setVisible(true);
-								dispose();
-								break;
-						}
+					if(ISBNtextField.getText().isEmpty()){
+						JOptionPane.showMessageDialog(null,"No puede dejar el campo vacío");
+					}
+					else{
+						Libro libro = Repositorio.ConsultarLibro(ISBNtextField.getText());
+						if(libro == null)
+							JOptionPane.showMessageDialog(null,"No existe el libro solicitado");
+						else
+							switch(operacion){  //Operacion = 1 Consulta; Operacion = 2 Modificacion; Operacion = 3 Eliminar libro.
+								case 1:
+									ResultadosConsulta resultados = new ResultadosConsulta(libro);
+									resultados.setVisible(true);
+									dispose();
+									break;
+								case 2:
+									VentanaModificar modificar = new VentanaModificar(libro);
+									modificar.setVisible(true);
+									dispose();
+									break;
+								case 3:
+									VentanaEliminar eliminar = new VentanaEliminar(libro);
+									eliminar.setVisible(true);
+									dispose();
+									break;
+							}
+					}
+
 				
 			}
 		});
