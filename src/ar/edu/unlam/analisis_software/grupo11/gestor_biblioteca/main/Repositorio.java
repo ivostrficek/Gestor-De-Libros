@@ -37,7 +37,7 @@ public class Repositorio {
 			pst.close();
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null,"Error: Ya existe un libro con el ISBN ingresado");
+			JOptionPane.showMessageDialog(null,"Error: Ya existe un libro en la base de datos con el ISBN ingresado");
 			e.printStackTrace();
 		}
 		
