@@ -72,38 +72,38 @@ public class VentanaModificar extends JFrame {
 		
 		isbnTextField = new JTextField();
 		isbnTextField.setEditable(false);
-		isbnTextField.setBounds(155, 106, 86, 20);
+		isbnTextField.setBounds(155, 106, 193, 20);
 		contentPane.add(isbnTextField);
 		isbnTextField.setColumns(10);
 		isbnTextField.setText(libro.getISBN());
 		
 		tituloTextField = new JTextField();
-		tituloTextField.setBounds(155, 131, 86, 20);
+		tituloTextField.setBounds(155, 131, 193, 20);
 		contentPane.add(tituloTextField);
 		tituloTextField.setColumns(10);
 		tituloTextField.setText(libro.getTitulo());
 		
 		autorTextField = new JTextField();
-		autorTextField.setBounds(155, 156, 86, 20);
+		autorTextField.setBounds(155, 156, 193, 20);
 		contentPane.add(autorTextField);
 		autorTextField.setColumns(10);
 		autorTextField.setText(libro.getAutor());
 		
 		
 		editorialTextField = new JTextField();
-		editorialTextField.setBounds(155, 181, 86, 20);
+		editorialTextField.setBounds(155, 181, 193, 20);
 		contentPane.add(editorialTextField);
 		editorialTextField.setColumns(10);
 		editorialTextField.setText(libro.getEditorial());
 		
 		edicionTextField = new JTextField();
-		edicionTextField.setBounds(155, 206, 86, 20);
+		edicionTextField.setBounds(155, 206, 193, 20);
 		contentPane.add(edicionTextField);
 		edicionTextField.setColumns(10);
 		edicionTextField.setText(Integer.toString(libro.getEdicion()));
 		
 		añoDePublicacionTextField = new JTextField();
-		añoDePublicacionTextField.setBounds(155, 231, 86, 20);
+		añoDePublicacionTextField.setBounds(155, 231, 193, 20);
 		contentPane.add(añoDePublicacionTextField);
 		añoDePublicacionTextField.setColumns(10);
 		añoDePublicacionTextField.setText(Integer.toString(libro.getAnno_de_publicacion()));
@@ -150,7 +150,7 @@ public class VentanaModificar extends JFrame {
 				
 			}
 		});
-		btnGuardarLibro.setBounds(127, 292, 171, 23);
+		btnGuardarLibro.setBounds(148, 292, 171, 23);
 		contentPane.add(btnGuardarLibro);
 		
 		JButton btnIrAMen = new JButton("Ir a men\u00FA");

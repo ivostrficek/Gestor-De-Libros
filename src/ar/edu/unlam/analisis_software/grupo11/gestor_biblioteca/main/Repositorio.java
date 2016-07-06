@@ -12,7 +12,7 @@ public class Repositorio {
 		try{
 			Libro libro;
 			Connection conn = sqliteConnection.dbConnector();
-			String query = "select * from libro where isbn = " + ISBN;
+			String query = "select * from libro where isbn = \"" + ISBN + "\"";
 			PreparedStatement pst = conn.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			if(rs.isClosed()){

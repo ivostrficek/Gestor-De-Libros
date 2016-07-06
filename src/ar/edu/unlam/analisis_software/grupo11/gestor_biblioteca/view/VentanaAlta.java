@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class VentanaAlta extends JFrame {
 
@@ -65,32 +66,32 @@ public class VentanaAlta extends JFrame {
 		contentPane.add(lblAoDePublicacin);
 		
 		isbnTextField = new JTextField();
-		isbnTextField.setBounds(155, 106, 86, 20);
+		isbnTextField.setBounds(155, 106, 161, 20);
 		contentPane.add(isbnTextField);
 		isbnTextField.setColumns(10);
 		
 		tituloTextField = new JTextField();
-		tituloTextField.setBounds(155, 131, 86, 20);
+		tituloTextField.setBounds(155, 131, 161, 20);
 		contentPane.add(tituloTextField);
 		tituloTextField.setColumns(10);
 		
 		autorTextField = new JTextField();
-		autorTextField.setBounds(155, 156, 86, 20);
+		autorTextField.setBounds(155, 156, 161, 20);
 		contentPane.add(autorTextField);
 		autorTextField.setColumns(10);
 		
 		editorialTextField = new JTextField();
-		editorialTextField.setBounds(155, 181, 86, 20);
+		editorialTextField.setBounds(155, 181, 161, 20);
 		contentPane.add(editorialTextField);
 		editorialTextField.setColumns(10);
 		
 		edicionTextField = new JTextField();
-		edicionTextField.setBounds(155, 206, 86, 20);
+		edicionTextField.setBounds(155, 206, 161, 20);
 		contentPane.add(edicionTextField);
 		edicionTextField.setColumns(10);
 		
 		añoDePublicacionTextField = new JTextField();
-		añoDePublicacionTextField.setBounds(155, 231, 86, 20);
+		añoDePublicacionTextField.setBounds(155, 231, 161, 20);
 		contentPane.add(añoDePublicacionTextField);
 		añoDePublicacionTextField.setColumns(10);
 		
@@ -131,7 +132,7 @@ public class VentanaAlta extends JFrame {
 				
 			}
 		});
-		btnGuardarLibro.setBounds(118, 320, 171, 23);
+		btnGuardarLibro.setBounds(145, 319, 171, 23);
 		contentPane.add(btnGuardarLibro);
 		
 		JButton btnIrAMen = new JButton("Ir a men\u00FA");
@@ -146,8 +147,9 @@ public class VentanaAlta extends JFrame {
 		contentPane.add(btnIrAMen);
 		
 		JLabel lblAltaDeLibros = new JLabel("Alta de libros");
+		lblAltaDeLibros.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAltaDeLibros.setFont(new Font("Traditional Arabic", Font.PLAIN, 37));
-		lblAltaDeLibros.setBounds(118, 22, 232, 50);
+		lblAltaDeLibros.setBounds(27, 22, 400, 50);
 		contentPane.add(lblAltaDeLibros);
 	}
 

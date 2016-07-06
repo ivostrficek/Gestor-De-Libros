@@ -31,7 +31,7 @@ public class ResultadosConsulta extends JFrame {
 	 */
 	public ResultadosConsulta(Libro libro) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 333, 395);
+		setBounds(100, 100, 415, 395);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
@@ -76,43 +76,43 @@ public class ResultadosConsulta extends JFrame {
 				dispose();
 			}
 		});
-		btnRealizarOtraConsulta.setBounds(51, 275, 182, 20);
+		btnRealizarOtraConsulta.setBounds(129, 270, 182, 20);
 		panel.add(btnRealizarOtraConsulta);
 		
 		JLabel lblResultados = new JLabel("Resultados");
 		lblResultados.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResultados.setFont(new Font("Traditional Arabic", Font.PLAIN, 37));
-		lblResultados.setBounds(27, 11, 262, 50);
+		lblResultados.setBounds(27, 11, 362, 50);
 		panel.add(lblResultados);
 		
 		JLabel ISBNlabel = new JLabel(libro.getISBN());
 		ISBNlabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		ISBNlabel.setBounds(185, 109, 86, 14);
+		ISBNlabel.setBounds(185, 109, 204, 14);
 		panel.add(ISBNlabel);
 		
 		JLabel tituloLabel = new JLabel(libro.getTitulo());
 		tituloLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		tituloLabel.setBounds(185, 134, 86, 14);
+		tituloLabel.setBounds(185, 134, 204, 14);
 		panel.add(tituloLabel);
 		
 		JLabel autorLabel = new JLabel(libro.getAutor());
 		autorLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		autorLabel.setBounds(185, 159, 86, 14);
+		autorLabel.setBounds(185, 159, 204, 14);
 		panel.add(autorLabel);
 		
 		JLabel editorialLabel = new JLabel(libro.getEditorial());
 		editorialLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		editorialLabel.setBounds(185, 184, 86, 14);
+		editorialLabel.setBounds(185, 184, 204, 14);
 		panel.add(editorialLabel);
 		
 		JLabel edicionLabel = new JLabel(Integer.toString(libro.getEdicion()));
 		edicionLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		edicionLabel.setBounds(185, 209, 86, 14);
+		edicionLabel.setBounds(185, 209, 182, 14);
 		panel.add(edicionLabel);
 		
 		JLabel añoLabel = new JLabel(Integer.toString(libro.getAnno_de_publicacion()));
 		añoLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		añoLabel.setBounds(185, 234, 86, 14);
+		añoLabel.setBounds(185, 234, 182, 14);
 		panel.add(añoLabel);
 		
 		JButton btnNewButton = new JButton("Ir a men\u00FA");
@@ -123,7 +123,7 @@ public class ResultadosConsulta extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(51, 313, 182, 23);
+		btnNewButton.setBounds(129, 310, 182, 23);
 		panel.add(btnNewButton);
 	}
 }
